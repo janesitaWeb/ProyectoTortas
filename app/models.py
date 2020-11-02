@@ -7,11 +7,14 @@ class Cliente(models.Model):
         nombre_completo = models.CharField(max_length=50) 
         fecha_nac = models.DateField(max_length=20)                
         genero = models.CharField(max_length=20)
-        telefono = models.IntegerField(max_length=20)
+        telefono = models.IntegerField(default=0) 
         email = models.EmailField(max_length=50)
         pasword = models.CharField(max_length=10)
         direccion = models.CharField(max_length=250) 
         ofertas = models.BooleanField(max_length=1)
+
+        def __str__(self):
+            return self.nro_doc
 
 
 class Tipo(models.Model):
@@ -28,6 +31,9 @@ class Porciones(models.Model):
         precio = models.FloatField(max_length=20)
         cod_tipo = models.ForeignKey(Tipo, on_delete=models.CASCADE)
 
+        def __str__(self):
+            return self.cantidad
+
 
 class Producto(models.Model):
         id = models.IntegerField(primary_key=True)
@@ -36,25 +42,29 @@ class Producto(models.Model):
         url = models.CharField(max_length=100)
         cod_tipo = models.ForeignKey(Tipo, on_delete=models.CASCADE)
 
+        def __str__(self):
+            return self.nombre
+
 
 class Pedido(models.Model):       
         fec_ing = models.DateField(max_length=20)
         direccion = models.CharField(max_length=250)
         fec_entrega = models.DateField(max_length=20)
         hora_entrega = models.CharField(max_length=10)        
-        telefono = models.IntegerField(max_length=12) 
-        nombre_completo = models.CharField(max_length=50)    #para compras sin registro          
+        telefono = models.IntegerField(default=0) 
+        Recibe_nombre = models.CharField(max_length=50)    #para compras sin registro          
         cod_cliente = models.ForeignKey(Cliente,blank=True, null=True, on_delete=models.CASCADE) #null para compras sin registro         
 
+        
 
 class Detalle(models.Model):        
-        precio = models.FloatField(max_length=20)
         cod_prod = models.ForeignKey(Producto, on_delete=models.CASCADE)
-        cantidad = models.IntegerField 
+        cant = models.IntegerField(default=1) 
         cod_porciones = models.ForeignKey(Porciones, blank=True, null=True, on_delete=models.CASCADE)
         cod_pedido = models.ForeignKey(Pedido, on_delete=models.CASCADE)
 
-
+        def __str__(self):
+            return self.cod_prod
 
 
 
