@@ -53,18 +53,17 @@ class Pedido(models.Model):
         hora_entrega = models.CharField(max_length=10)        
         telefono = models.IntegerField(default=0) 
         Recibe_nombre = models.CharField(max_length=50)    #para compras sin registro          
-        cod_cliente = models.ForeignKey(Cliente,blank=True, null=True, on_delete=models.CASCADE) #null para compras sin registro         
-
+        cod_cliente = models.ForeignKey(Cliente,blank=True, null=True, on_delete=models.CASCADE) #null para compras sin registro  
+  
         
-
 class Detalle(models.Model):        
         cod_prod = models.ForeignKey(Producto, on_delete=models.CASCADE)
         cant = models.IntegerField(default=1) 
-        cod_porciones = models.ForeignKey(Porciones, blank=True, null=True, on_delete=models.CASCADE)
+        cod_porciones = models.ForeignKey(Porciones, on_delete=models.CASCADE)
         cod_pedido = models.ForeignKey(Pedido, on_delete=models.CASCADE)
 
-        def __str__(self):
-            return self.cod_prod
+
+
 
 
 

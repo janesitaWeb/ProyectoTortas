@@ -4,7 +4,7 @@ from app.models import Tipo, Porciones
 
 class PorcionesTestCase(TestCase):
      def setUp(self):
-        tipo1 = Tipo.objects.createt(id=7,descripcion="tapaditos")
+        tipo1 = Tipo.objects.create(id=7,descripcion="tapaditos")
         Porciones.objects.create(id = 3, cantidad ="12 unidades",precio=6000,cod_tipo=tipo1)
 
 

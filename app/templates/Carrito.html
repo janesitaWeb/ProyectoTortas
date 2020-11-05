@@ -7,15 +7,14 @@
 <!-- ---------------------------Formulario Pedido---------------------------------------------------->
 <section id="pedido1" class="container">
     <div class="row justify-content-center">
-        <div class="col-md-6 btn-dark">
-            <h2 class="text-info">Gestiona tu Pedido</h2>
-            <hr bg-info>
-            <form action="/carrito/" method="POST " name="formulario ">{% csrf_token %}
+        <div class=" col-md-6">
+            <h2 class="text-info">Pedido</h2>
+            <form action="/carrito/ " method="POST" name="">{% csrf_token %}
                 <!-- fecha de ingreso -->
                 <div class="form-group row ">
-                    <label for="ingreso" class="col-form-label col-md-5">fecha de Ingreso:</label>
-                    <div class="col-md-7">
-                        <input type="date" name="ingreso" id="ingreso" value="" class="form-control" required>
+                    <label for="ingreso" class="col-form-label col-md-5 ">fecha de Ingreso:</label>
+                    <div class="col-md-7 ">
+                        <input type="date" name="ingreso" id="ingreso" value="" class="form-control " required>
                         <div class="invalid-feedback ">
                             Please choose a username.
                         </div>
@@ -23,9 +22,9 @@
                 </div>
                 <!-- Direcion -->
                 <div class="form-group row ">
-                    <label for="dir" class="col-form-label col-md-5">Direccion de despacho: </label>
-                    <div class="col-md-7">
-                        <input type="text " name="dir" id="dir" value="" placeholder="Direccion de Despacho" class="form-control" required>
+                    <label for="dir " class="col-form-label col-md-5 ">Direccion de despacho: </label>
+                    <div class="col-md-7 ">
+                        <input type="text" name="dir" id="dir" value="" placeholder="Direccion de Despacho " class="form-control " required>
                         <div class="invalid-feedback ">
                             Please choose a username.
                         </div>
@@ -33,9 +32,9 @@
                 </div>
                 <!-- fecha entrega -->
                 <div class="form-group row ">
-                    <label for="entrega" class="col-form-label col-md-5">fecha de entrega:</label>
-                    <div class="col-md-7">
-                        <input type="date" name="entrega" id="entrega" value="" class="form-control " required>
+                    <label for="entrega " class="col-form-label col-md-5 ">fecha de entrega:</label>
+                    <div class="col-md-7 ">
+                        <input type="date" name="entrega" id="entrega" value="" class="form-control" required>
                         <div class="invalid-feedback ">
                             Please choose a username.
                         </div>
@@ -43,34 +42,34 @@
                 </div>
                 <!-- hora de entrega -->
                 <div class="form-group row ">
-                    <label for="hora" class="col-form-label col-md-5">Hora entrega: </label>
-                    <div class="col-md-7">
+                    <label for="hora" class="col-form-label col-md-5 ">Hora entrega: </label>
+                    <div class="col-md-7 ">
                         <select class="form-control " id="hora" name="hora">
-                                <option class="hora" value="9:00 a 10:00">9:00 a 10:00</option>
-                                <option class="hora" value="10:00 a 11:00">10:00 a 11:00</option>
-                                <option class="hora" value="11:00 a 12:00">11:00 a 12:00 </option>
-                                <option class="hora" value="12:00 a 13:00">12:00 a 13:00 </option>
-                                <option class="hora" value="16:00 a 17:00">16:00 a 17:00 </option>
-                                <option class="hora" value="p17:00 a 18:00">17:00 a 18:00</option>
-                                <option class="hora" value="18:00 a 19:00">18:00 a 19:00</option>
+                                <option class="hora " value="9:00 a 10:00 ">9:00 a 10:00</option>
+                                <option class="hora " value="10:00 a 11:00 ">10:00 a 11:00</option>
+                                <option class="hora " value="11:00 a 12:00 ">11:00 a 12:00 </option>
+                                <option class="hora " value="12:00 a 13:00 ">12:00 a 13:00 </option>
+                                <option class="hora " value="16:00 a 17:00 ">16:00 a 17:00 </option>
+                                <option class="hora " value="p17:00 a 18:00 ">17:00 a 18:00</option>
+                                <option class="hora " value="18:00 a 19:00 ">18:00 a 19:00</option>
                         </select>
                     </div>
                 </div>
                 <!-- telefono -->
                 <div class=" form-group row ">
-                    <label for="fono " class="col-form-label col-md-5">Telefono: </label>
-                    <div class="col-md-7">
-                        <input type="number" name="fono" id="fono" value="" placeholder="telefono de despacho" class="form-control" required>
+                    <label for="fono" class="col-form-label col-md-5">Telefono: </label>
+                    <div class="col-md-7 ">
+                        <input type="number" name="fono" id="fono" value="" placeholder="telefono de despacho " class="form-control " required>
                         <div class="invalid-feedback ">
                             Please choose a username.
                         </div>
                     </div>
                 </div>
                 <!-- recibe -->
-                <div class="form-group row ">
-                    <label for="recibe" class="col-form-label col-md-5">Nombre y Apellido: </label>
-                    <div class="col-md-7">
-                        <input type="text " name="recibe" id="recibe" value="" placeholder="Persona que recibe" class="form-control" required>
+                <div class="form-group row">
+                    <label for="recibe" class="col-form-label col-md-5 ">Nombre y Apellido: </label>
+                    <div class="col-md-7 ">
+                        <input type="text" name="recibe" id="recibe" value="" placeholder="Persona que recibe" class="form-control" required>
                         <div class="invalid-feedback ">
                             Please choose a username.
                         </div>
@@ -78,21 +77,77 @@
                 </div>
                 <!-- Cliente -->
                 <div class="form-group row ">
-                    <label for="cli" class="col-form-label col-md-5">Cliente: </label>
+                    <label for="cli" class="col-form-label col-md-5 ">Cliente: </label>
+                    <div class="col-md-7 ">
+                        <select class="form-control" id="cli_obj" name="cli_obj">
+                            {% for obj_cl in obj_cli%}
+                                <option class="cod_p" value="{{obj_cl}}">{{obj_cl}}</option>
+                                {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <hr bg-info>
+                <div class=" form-group ">
+                    <button class="btn btn-info " type="submit ">Ingresar pedido</button>
+                </div>
+            </form>
+        </div>
+        <!-- ---------------------------Detalle del pedido--------------------------------------------------->
+        <div class="col-md-6 ">
+            <hr bg-info>
+            <h4 class="text-info ">Elegir Productos</h4>
+            <form action="/Detalle/ " method="POST " name="detalle">{% csrf_token %}
+
+                <!-- Producto -->
+                <div class="form-group row ">
+                    <label for="cod_p" class="col-form-label col-md-5">Elegir Producto: </label>
                     <div class="col-md-7">
-                        <input type="text" name="cli" id="cli" value="{{cli.email}}" placeholder="" class="form-control " required>
+                        <select class="form-control" id="cod_p" name="cod_p">
+                            {% for prod_obj in obj%}
+                                <option class="cod_p" value="{{prod_obj}}">{{prod_obj}}</option>
+                                {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <!-- cantidad -->
+                <div class=" form-group row ">
+                    <label for="nroCant" class="col-form-label col-md-5 ">Cantidad: </label>
+                    <div class="col-md-7 ">
+                        <input type="number" name="nroCant" id="nroCant" value="" class="form-control" required>
                         <div class="invalid-feedback ">
                             Please choose a username.
                         </div>
                     </div>
                 </div>
+                <!-- Porciones -->
+                <div class="form-group row ">
+                    <label for="porciones " class="col-form-label col-md-5 ">Elegir Porciones </label>
+                    <div class="col-md-7">
+                        <select class="form-control" id="porciones" name="porciones">
+                            {% for por in obj_por%}
+                                <option class="porciones" value="{{por}}">{{por}}</option> 
+                            {%endfor%}
+                        </select>
+                    </div>
+                </div>
+
+                <!-- PEDIDO -->
+                <div class="form-group row ">
+                    <label for="pedido" class="col-form-label col-md-5 ">Pedido: </label>
+                    <div class="col-md-7 ">
+                        <select class="form-control" id="pedido" name="pedido">
+                        {% for ped in obj_ped%}
+                        <option class="pedido" value="{{ped}}">{{ped.id}}</option>
+                        {%endfor%}
+                    </select>
+                    </div>
+                </div>
                 <hr bg-info>
                 <div class=" form-group ">
-                    <button class="btn btn-info " type="submit ">Enviar</button>
+                    <button class="btn btn-info " type="submit">Ingresar Producto</button>
                 </div>
             </form>
         </div>
-        <div class="col-md-6 "></div>
     </div>
 
 </section>

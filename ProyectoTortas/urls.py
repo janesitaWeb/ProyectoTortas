@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.urls import re_path
-from ProyectoTortas.views import inicio, productos, registrate, carrito, Buscar, Cambio
+from ProyectoTortas.views import inicio, productos, registrate, carrito, Buscar, Cambio,detalle
 
 
 urlpatterns = [
@@ -27,6 +27,7 @@ urlpatterns = [
     path('carrito/', carrito, name='carrito'),
     path('Buscar/', Buscar, name='Buscar'),
     path('Cambio/', Cambio, name='Cambio'),
+    path('Detalle/', detalle, name='detalle'),
     
     
     

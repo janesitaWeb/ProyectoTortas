@@ -6,7 +6,7 @@
 
             <div class="form-group ">
                 <hr bg-info>
-                <h2> Registro de Clientes</h2>
+                <h2 class="text-info"> Registro de Clientes</h2>
                 <hr bg-info>
                 <p class="pb-0 mb-0 ">Te invitamos a crear tu cuenta</p>
                 <p class="text-danger small pt-0 mt-0 ">*todos los campos son obligatorios</p>
@@ -144,7 +144,7 @@
 
             <div class="form-group " id="titleform2">
                 <hr bg-info>
-                <h2>Ingresa a tu cuenta</h2>
+                <h2 class="text-info">Ingresa a tu cuenta</h2>
                 <hr bg-info>
                 <p class="pb-0 mb-0 ">Si ya tienes una cuenta ingresa tu correo y contraseña</p>
                 <p class="text-info small pt-0 mt-0 ">*si a un no tienes cuenta te invitamos a crearla</p>
@@ -196,7 +196,7 @@
         {% for cli in Cli %}
         <form action="/Cambio/ " method="POST" class="ingreso " name="form2 ">{% csrf_token %}
             <div class="text-info">
-                <h4>Recupera tu Contraseña</h4>
+                <h4 class="text-info">Recupera tu Contraseña</h4>
             </div>
             <!-- email -->
             <div class="form-group row">

@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render  
-from app.models import Producto, Tipo, Cliente
+from app.models import Producto, Tipo, Cliente, Porciones, Pedido, Detalle
 
 
 def inicio(request):
@@ -40,7 +40,7 @@ def Buscar(request):
         mensaje=request.GET["correo"]
         pasw =request.GET["pasw"]
         Cli =Cliente.objects.filter(email=mensaje)
-        sms="* Correo no Existe, Recupera tu contraseña ingresando correo"
+        sms="* Correo no Existe, Recupera tu contraseña ingresando un correo valido"
         for c in Cli:
             if c.pasword==pasw:
                 sms="Bienvenido"  
@@ -61,6 +61,37 @@ def Cambio(request):
     return render(request,'registrate.html', {})
     
 def carrito(request):
-    return render(request,'Carrito.html', {"obj":obj})
+
+    if Producto.objects.all():
+        obj = Producto.objects.all() 
+    if Porciones.objects.all():
+        obj_por = Porciones.objects.all() 
+    if Pedido.objects.all():
+        obj_ped = Pedido.objects.all().order_by('-id')
+    if Cliente.objects.all():
+        obj_cli = Cliente.objects.all() 
+    if request.method == "POST": 
+        fec_ing=request.POST['ingreso']
+        direccion=request.POST['dir']
+        fec_entrega=request.POST['entrega']
+        hora_entrega=request.POST['hora']
+        telefono=request.POST['fono']  
+        Recibe_nombre=request.POST['recibe']
+        cod_cliente=request.POST['cli_obj']  
+
+        ped = Pedido(fec_ing=fec_ing,direccion=direccion,fec_entrega=fec_entrega,hora_entrega=hora_entrega,telefono=telefono,Recibe_nombre=Recibe_nombre,cod_cliente_id=cod_cliente)
+        ped.save()
+    return render(request,'Carrito.html', {"obj":obj, "obj_por":obj_por,"obj_ped":obj_ped,"obj_cli":obj_cli})
 
 
+def detalle(request):
+
+    if request.method == "POST": 
+        cod_prod=request.POST['cod_p']
+        cant=request.POST['nroCant']
+        cod_porciones=request.POST['porciones']
+        cod=request.POST['pedido']
+
+        det = Detalle(cod_prod_id=cod_prod,cant=cant,cod_porciones_id=cod_porciones,cod_pedido_id=cod)
+        det.save() 
+    return render(request,'Carrito.html', {}) 
