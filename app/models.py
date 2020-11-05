@@ -61,7 +61,7 @@ class Detalle(models.Model):
         cant = models.IntegerField(default=1) 
         cod_porciones = models.ForeignKey(Porciones, on_delete=models.CASCADE)
         cod_pedido = models.ForeignKey(Pedido, on_delete=models.CASCADE)
-
+        
 
 
 

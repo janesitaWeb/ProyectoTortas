@@ -69,10 +69,9 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Detalle',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('precio', models.FloatField(max_length=20)),
+                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),                
                 ('cod_pedido', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='app.pedido')),
-                ('cod_porciones', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='app.porciones')),
+                ('cod_porciones', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='app.porciones')),
                 ('cod_prod', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='app.producto')),
             ],
         ),
