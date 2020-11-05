@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.urls import re_path
-from ProyectoTortas.views import inicio, productos, registrate, carrito
+from ProyectoTortas.views import inicio, productos, registrate, carrito, Buscar, Cambio
 
 
 urlpatterns = [
@@ -25,6 +25,11 @@ urlpatterns = [
     path('productos/', productos, name ='productos'),
     path('registrate/', registrate, name ='registrate'),
     path('carrito/', carrito, name='carrito'),
+    path('Buscar/', Buscar, name='Buscar'),
+    path('Cambio/', Cambio, name='Cambio'),
+    
+    
+    
 
     #path('', include('app.urls')),  usar esta linea en caso de usar la urls.py en al app  
 ]

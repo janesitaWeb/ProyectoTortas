@@ -4,18 +4,15 @@
     <h1>Escoge una categoria de producto</h1>
     <div class="store-wrapper">
         <div class="category_list">
-            <a href="#" class="category_item" category="all">all</a>
-            <a href="#" class="category_item" category="tortas">tortas</a>
-            <a href=" # " class="category_item " category="cheesecake">cheesecake</a>
-            <a href="# " class="category_item " category="tortasheladas">tortasheladas</a>
-            <a href="# " class="category_item " category="bocaditos">bocaditos</a>
+            {% for tip in tipo %}
+            <a href="#" class="category_item" category="{{tip.descripcion}}">{{tip.descripcion}}</a> {% endfor %}
         </div>
 
         <div class="products-list">
             {% for prod_tortas in prod %}
             <div class="product-item " category="{{prod_tortas.cod_tipo}}">
-                <img src=" {{prod_tortas.url}} " alt="bocaditos">
-                <a href="# ">{{prod_tortas.nombre}}</a>
+                <img src=" {{prod_tortas.url}}" alt="">
+                <a href="# ">{{prod_tortas.cod_tipo}}</a>
             </div>
             {% endfor %}
         </div>

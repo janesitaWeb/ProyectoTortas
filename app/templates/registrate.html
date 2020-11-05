@@ -1,199 +1,235 @@
-<!doctype html>
-<html lang="en">
+ {% extends "base.html" %} {% block content %}
+<!-- ---------------------------Formulario 1---------------------------------------------------->
+<section id="registro1" class="container">
+    <div class="row justify-content-center mr-5 pt-5 ">
+        <div class="col-md-6 ">
 
-<head></head>
+            <div class="form-group ">
+                <hr bg-info>
+                <h2> Registro de Clientes</h2>
+                <hr bg-info>
+                <p class="pb-0 mb-0 ">Te invitamos a crear tu cuenta</p>
+                <p class="text-danger small pt-0 mt-0 ">*todos los campos son obligatorios</p>
+            </div>
+            <form action="/registrate/" method="POST" name="formulario">{% csrf_token %}
 
-<body>
-    {% extends "base.html" %} {% block content %}
-    <section id="registro1" class="container">
-        <div class="row justify-content-center mr-5 pt-5 ">
-            <div class="col-md-6 ">
-
-                <div class="form-group ">
-                    <hr bg-info>
-                    <h2> Registro de Clientes</h2>
-                    <hr bg-info>
-                    <p class="pb-0 mb-0 ">Te invitamos a crear tu cuenta</p>
-                    <p class="text-danger small pt-0 mt-0 ">*todos los campos son obligatorios</p>
-                </div>
-
-
-                <form action="/registrate/" method="POST" name="formulario">{% csrf_token %}
-
-                    <!-- documento de identidad -->
-                    <div class="form-group row ">
-                        <label for="documento " class="col-form-label col-md-4 ">Seleccione Doc: </label>
-                        <div class="col-md-4 ">
-                            <select class="form-control " id="documento" name="documento">
+                <!-- documento de identidad -->
+                <div class="form-group row ">
+                    <label for="documento " class="col-form-label col-md-4 ">Seleccione Doc: </label>
+                    <div class="col-md-4 ">
+                        <select class="form-control " id="documento" name="documento">
                                 <option class="documento" value="rut">Rut</option>
                                 <option class="documento" value="pasaporte ">Pasaporte</option>
                                 <option class="documento" value="otro ">Otro</option>
                             </select>
 
+                    </div>
+                    <div class="col-md-4 ">
+                        <input type="text" name="ru" id="rut" value="" placeholder="numero de doc" class="form-control valirut" required>
+                        <div class="invalid-feedback">
+                            Please choose a username.
                         </div>
-                        <div class="col-md-4 ">
-                            <input type="text" name="ru" id="rut" value="" placeholder="numero de doc" class="form-control valirut" required>
-                            <div class="invalid-feedback">
-                                Please choose a username.
-                            </div>
 
-                        </div>
                     </div>
-
-                    <!-- nombre y apellido -->
-                    <div class="form-group row">
-                        <label for="nombre" class="col-form-label col-md-4 ">Nombre y Apellido: </label>
-                        <div class="col-md-8 ">
-                            <input type="text" name="nombre" id="nombre" value="" placeholder="Escribe tu nombre aqui" class="form-control" required>
-                            <div class="invalid-feedback">
-                                Please choose a username.
-                            </div>
-                        </div>
-                    </div>
-                    <!-- nacimiento -->
-                    <div class="form-group row">
-                        <label for="nacimiento" class="col-form-label col-md-4">fecha de nacimiento: </label>
-                        <div class="col-md-8 ">
-                            <input type="date" name="nacimiento" id="nacimiento" value="" class="form-control" required>
-                            <div class="invalid-feedback">
-                                Please choose a username.
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- genero -->
-
-                    <div class="form-group row ">
-                        <label for="genero" class="col-form-label col-md-4 ">Genero: </label>
-                        <div class="col-md-8 pt-2 ">
-                            <div class="form-check form-check-inline ">
-                                <input class="form-check-input " type="radio" name="genero" id="femenino" value="femenino">
-                                <label class="form-check-label ">Femenino</label>
-                            </div>
-                            <div class=" form-check form-check-inline ">
-                                <input class="form-check-input " type="radio" name="genero" id="masculino" value="masculino">
-                                <label class="form-check-label ">Masculino</label>
-                            </div>
-
-                        </div>
-                    </div>
-                    <!-- telefono -->
-                    <div class=" form-group row ">
-                        <label for="telefono" class="col-form-label col-md-4 ">Telefono: </label>
-                        <div class="col-md-8 ">
-                            <input type="number" name="telefono" id="telefono" value="" placeholder="Escribe tu telefono aqui" class="form-control" required>
-                            <div class="invalid-feedback">
-                                Please choose a username.
-                            </div>
-                        </div>
-                    </div>
-                    <!-- email -->
-                    <div class="form-group row ">
-                        <label for="email " class="col-form-label col-md-4 ">Email:</label>
-                        <div class="col-md-8 ">
-                            <input type="email" name="email" id="email" value="" placeholder="Escribe tu email aqui" class="form-control" required>
-                            <div class="invalid-feedback">
-                                Please choose a username.
-                            </div>
-                        </div>
-                    </div>
-                    <!-- contraseña -->
-                    <div class="form-group row">
-                        <label for="contraseña" class="col-form-label col-md-4 ">Contraseña:</label>
-                        <div class="col-md-8 ">
-                            <input type="password" name="pasword" id="contraseña" value="" placeholder="Escribe tu contraseña" class="form-control" required>
-                            <div class="invalid-feedback">
-                                Please choose a username.
-                            </div>
-                        </div>
-                    </div>
-                    <!-- direccion -->
-                    <div class="form-group row">
-                        <label for="direccion" class="col-form-label col-md-4 ">Direccion: </label>
-                        <div class="col-md-8 ">
-                            <input type="text" name="direccion" id="direccion" value="" placeholder="Escribe tu direccion aqui" class="form-control" required>
-                            <div class="invalid-feedback">
-                                Please choose a username.
-                            </div>
-                        </div>
-                    </div>
-                    <hr bg-info>
-                    <!-- acepta envio de ofertas al mail -->
-                    <div class="form-group row">
-                        <label for="acepta" class="col-form-label col-md-6 ">Acepta Ofertas por email</label>
-                        <div class="col-md-6 ">
-                            <div class="form-check form-check-inline pt-2 ">
-                                <input class="form-check-input " type="radio" name="acepta" id="acepta" value="True">
-                                <label class="form-check-label">Si acepto</label>
-                            </div>
-                            <div class="form-check form-check-inline pt-2 ">
-                                <input class="form-check-input " type="radio" name="acepta" id="noacepta" value="False">
-                                <label class="form-check-label">No acepto</label>
-                            </div>
-                        </div>
-                    </div>
-                    <hr bg-info>
-                    <!-- Fin acepta envio de ofertas al mail -->
-
-                    <div class=" form-group ">
-                        <button class="btn btn-info revisar" type="submit">Enviar</button>
-                        <hr bg-info>
-                    </div>
-
-                </form>
-            </div>
-        </div>
-    </section>
-    <!-- ------------------------------------------------------------------------------->
-    <section class="container ingreso">
-        <div class="row justify-content-center mr-5 pt-5 ">
-            <div class="col-md-6 ">
-
-                <div class="form-group ">
-                    <hr bg-info>
-                    <h2>Ingresa a tu cuenta</h2>
-                    <hr bg-info>
-                    <p class="pb-0 mb-0 ">Si ya tienes una cuenta ingresa tu correo y contraseña</p>
-                    <p class="text-info small pt-0 mt-0 ">*si a un no tienes cuenta te invitamos a crearla</p>
                 </div>
 
-
-                <form class="ingreso">
-
-                    <!-- email -->
-                    <div class="form-group row ">
-                        <label for="correo" class="col-form-label col-md-4 ">Email:</label>
-                        <div class="col-md-8 ">
-                            <input type="email" name="correo" id="correo" value="" placeholder="Escribe tu email aqui" class="form-control">
+                <!-- nombre y apellido -->
+                <div class="form-group row">
+                    <label for="nombre" class="col-form-label col-md-4 ">Nombre y Apellido: </label>
+                    <div class="col-md-8 ">
+                        <input type="text" name="nombre" id="nombre" value="" placeholder="Escribe tu nombre aqui" class="form-control" required>
+                        <div class="invalid-feedback">
+                            Please choose a username.
                         </div>
                     </div>
-                    <!-- contraseña -->
-                    <div class="form-group row ">
-                        <label for="contraseña" class="col-form-label col-md-4 ">Contraseña:</label>
-                        <div class="col-md-8 ">
-                            <input type="password" name="contraseña" id="contraseña2" value="" placeholder="Escribe tu contraseña" class="form-control" required>
-                            <div class="invalid-feedback">
-                                Please choose a username.
-                            </div>
+                </div>
+                <!-- nacimiento -->
+                <div class="form-group row">
+                    <label for="nacimiento" class="col-form-label col-md-4">fecha de nacimiento: </label>
+                    <div class="col-md-8 ">
+                        <input type="date" name="nacimiento" id="nacimiento" value="" class="form-control" required>
+                        <div class="invalid-feedback">
+                            Please choose a username.
                         </div>
                     </div>
-                    <hr bg-info>
+                </div>
 
+                <!-- genero -->
 
-                    <div class="form-group ">
+                <div class="form-group row ">
+                    <label for="genero" class="col-form-label col-md-4 ">Genero: </label>
+                    <div class="col-md-8 pt-2 ">
+                        <div class="form-check form-check-inline ">
+                            <input class="form-check-input " type="radio" name="genero" id="femenino" value="femenino">
+                            <label class="form-check-label ">Femenino</label>
+                        </div>
+                        <div class=" form-check form-check-inline ">
+                            <input class="form-check-input " type="radio" name="genero" id="masculino" value="masculino">
+                            <label class="form-check-label ">Masculino</label>
+                        </div>
 
-                        <button class="btn btn-info col-md-4" type="submit" id="send">Ingresar</button>
                     </div>
-
-                </form>
-
-                <button class="btn btn-info col-md-4" id="crear">Crear una cuenta</button>
+                </div>
+                <!-- telefono -->
+                <div class=" form-group row ">
+                    <label for="telefono" class="col-form-label col-md-4 ">Telefono: </label>
+                    <div class="col-md-8 ">
+                        <input type="number" name="telefono" id="telefono" value="" placeholder="Escribe tu telefono aqui" class="form-control" required>
+                        <div class="invalid-feedback">
+                            Please choose a username.
+                        </div>
+                    </div>
+                </div>
+                <!-- email -->
+                <div class="form-group row ">
+                    <label for="email " class="col-form-label col-md-4 ">Email:</label>
+                    <div class="col-md-8 ">
+                        <input type="email" name="email" id="email" value="" placeholder="Escribe tu email aqui" class="form-control" required>
+                        <div class="invalid-feedback">
+                            Please choose a username.
+                        </div>
+                    </div>
+                </div>
+                <!-- contraseña -->
+                <div class="form-group row">
+                    <label for="contraseña" class="col-form-label col-md-4 ">Contraseña:</label>
+                    <div class="col-md-8 ">
+                        <input type="password" name="pasword" id="pasword" value="" placeholder="Escribe tu contraseña" class="form-control" required>
+                        <div class="invalid-feedback">
+                            Please choose a username.
+                        </div>
+                    </div>
+                </div>
+                <!-- direccion -->
+                <div class="form-group row">
+                    <label for="direccion" class="col-form-label col-md-4 ">Direccion: </label>
+                    <div class="col-md-8 ">
+                        <input type="text" name="direccion" id="direccion" value="" placeholder="Escribe tu direccion aqui" class="form-control" required>
+                        <div class="invalid-feedback">
+                            Please choose a username.
+                        </div>
+                    </div>
+                </div>
                 <hr bg-info>
+                <!-- acepta envio de ofertas al mail -->
+                <div class="form-group row">
+                    <label for="acepta" class="col-form-label col-md-6 ">Acepta Ofertas por email</label>
+                    <div class="col-md-6 ">
+                        <div class="form-check form-check-inline pt-2 ">
+                            <input class="form-check-input " type="radio" name="acepta" id="acepta" value="True">
+                            <label class="form-check-label">Si acepto</label>
+                        </div>
+                        <div class="form-check form-check-inline pt-2 ">
+                            <input class="form-check-input " type="radio" name="acepta" id="noacepta" value="False">
+                            <label class="form-check-label">No acepto</label>
+                        </div>
+                    </div>
+                </div>
+                <hr bg-info>
+                <!-- Fin acepta envio de ofertas al mail -->
+
+                <div class=" form-group ">
+                    <button class="btn btn-info revisar" type="submit">Enviar</button>
+                    <hr bg-info>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</section>
+<!-- ---------------------------Formulario 2---------------------------------------------------->
+<section id="registro2" class="container ingreso">
+    <div class="row justify-content-center mr-5 pt-5">
+        <div class="col-md-6  ">
+
+            <div class="form-group " id="titleform2">
+                <hr bg-info>
+                <h2>Ingresa a tu cuenta</h2>
+                <hr bg-info>
+                <p class="pb-0 mb-0 ">Si ya tienes una cuenta ingresa tu correo y contraseña</p>
+                <p class="text-info small pt-0 mt-0 ">*si a un no tienes cuenta te invitamos a crearla</p>
+            </div>
+
+
+            <form action="/Buscar/" method="GET" class="ingreso" name="form2">{% csrf_token %}
+
+                <!-- email -->
+                <div class="form-group row " id="ocCorreo">
+                    <label for="correo" class="col-form-label col-md-4 ">Email:</label>
+                    <div class="col-md-8 ">
+                        <input type="email" name="correo" id="correo" value="" placeholder="Escribe tu email aqui" class="form-control">
+                    </div>
+                </div>
+                <!-- contraseña -->
+                <div class="form-group row " id="ocPasw">
+                    <label for="contraseña" class="col-form-label col-md-4 ">Contraseña:</label>
+                    <div class="col-md-8 ">
+                        <input type="password" name="pasw" id="pasw" value="" placeholder="Escribe tu contraseña" class="form-control" required>
+                        <div class="invalid-feedback">
+                            Please choose a username.
+                        </div>
+                    </div>
+                </div>
+                <hr bg-info>
+                <div class="text-info  form-group row ">
+                    <h6>{{sms}} .</h6>
+                    {% for cli in Cli %}
+                    <h6>{{cli.nombre_completo}} #</h6>
+                    <p id="cliente_nro">{{cli.nro_doc}}</p> {% endfor %}
+                </div>
+
+                <div class="form-group row ">
+                    <button class="btn btn-info col-md-5 " type="submit" id="send" value="registrate">Ingresar</button>
+                    </button>
+                </div>
+
+            </form>
+            <div class="form-group row ">
+                <button class="btn btn-info col-md-5 crear" id="crear">Crear una cuenta</button>
             </div>
         </div>
-    </section>
-    {% endblock %}
-</body>
+    </div>
+</section>
+<!-- ---------------------------Formulario 3---------------------------------------------------->
+<section id="registro3 " class="container ingreso ">
+    <div class="row justify-content-center mr-5 pt-5 ">
+        {% for cli in Cli %}
+        <form action="/Cambio/ " method="POST" class="ingreso " name="form2 ">{% csrf_token %}
+            <div class="text-info">
+                <h4>Recupera tu Contraseña</h4>
+            </div>
+            <!-- email -->
+            <div class="form-group row">
+                <label for="email " class="col-form-label col-md-4 ">Email:</label>
+
+                <div class="col-md-8 ">
+                    <input type="email" name="correoElec" value="{{cli.email}}" placeholder="Escribe tu email aqui" class="form-control">
+                </div>
+            </div>
+            <!-- contraseña1 A recuperar -->
+            <div class="form-group row " id="rePasw1 ">
+                <label for="contraseña " class="col-form-label col-md-4 ">Contraseña:</label>
+                <div class="col-md-8 ">
+                    <input type="password " name="pasw1" id="pasw1" value="" placeholder="Escribe tu contraseña " class="form-control ">
+                </div>
+            </div>
+            <!-- Re ingreso de contraseña -->
+            <div class="form-group row " id="rePasw2 ">
+                <label for="contraseña " class="col-form-label col-md-4 " id="reingresa ">Reingresa Contraseña:</label>
+                <div class="col-md-8 ">
+                    <input type="password " name="pasw2" id="pasw2" value="" placeholder="Reingresa contraseña " class="form-control ">
+                    <p class="nota"></p>
+                </div>
+            </div>
+            <div class="form-group row ">
+                <button class="btn btn-info col-md-6" type="submit " id="recuperar">Recuperar Tu Contraseña</button>
+            </div>
+        </form>
+        {% endfor %}
+
+    </div>
+
+</section>
 
 
-</html>
+{% endblock %}

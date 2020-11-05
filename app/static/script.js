@@ -1,5 +1,4 @@
 $(document).ready(function() {
-
     //console.log('funcionando'); 
     //$('h1').html('adfdgsdf'); 
     //document.querySelector('h1').innerHTML = 'mamamam';  
@@ -13,12 +12,11 @@ $(document).ready(function() {
 
     // ELIMINAR DE PANTALLA EL REGISTRO DEL CLIENTE REGISTRO DEL CLIENTE ====================
 
-    $('#registro1').fadeOut(0);
-
+    $('#registro1').hide(0);
 
     // FUNCION 2 MOSTRANDO EL REGISTRO DEL CLIENTE =======================
 
-    $('#crear').click(function() {
+    $('.crear').click(function() {
         $('#registro1').show(0);
         $('.ingreso').hide(0);
         $('#crear').hide(0);
@@ -26,16 +24,32 @@ $(document).ready(function() {
 
 
     $('#acepta').attr("checked", "checked");
+    $('#rePasw1').hide(0);
+    $('#rePasw2').hide(0);
 
-    $('#crear').click(function() {
-        $('#registro1').show(0);
-        $('.ingreso').hide(0);
+    $('#recuperar').click(function() {
+        $('#rePasw1').show(0);
+        $('#rePasw2').show(0);
         $('#crear').hide(0);
+        $('#send').hide(0);
+        $('#ocCorreo').hide(0);
+        $('#ocPasw').hide(0);
+        $('#titleform2').hide(0);
     });
-    $('#prod').click(function() {
-        alert('sdfgsdfgsdfg');
 
-    });
+    $('#recuperar').hide(0);
+
+    $('#pasw2').keyup(function() {
+        var valor1 = $('#pasw1').val();
+        var valor2 = $('#pasw2').val();
+        if (valor1 == valor2) {
+            $('#recuperar').show(0);
+            $(".nota").text("Contraseñas Coinsiden");
+        } else {
+            $(".nota").text("Contraseñas no Coinsiden");
+        }
+
+    })
 
     // FUNCION QUE VALIDA EL CORREO ELECTRONICO=======================
     $('#send').click(function() {
@@ -43,7 +57,6 @@ $(document).ready(function() {
             alert('El correo electrónico  no es correcto.');
             return false;
         }
-
         alert('El email introducido es correcto.');
     });
 
@@ -112,6 +125,7 @@ $(document).ready(function() {
             rut = cuerpo.slice(0, 1) + '.' + cuerpo.slice(1, 4) + '.' + cuerpo.slice(4, 7) + '-' +
                 cuerpo.slice(-1).toUpperCase();
             $("#rut").val(rut);
+
         }
 
 
@@ -143,16 +157,7 @@ $(document).ready(function() {
             if (dvEsperado != dv) {
                 alert('error rut');
             } else alert('rut correcto');
-
-
-
-
-
-
-
         }
-
-
     });
 
 })
