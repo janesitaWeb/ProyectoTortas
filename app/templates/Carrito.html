@@ -104,7 +104,7 @@
                     <div class="col-md-7">
                         <select class="form-control" id="cod" name="cod">
                             {% for prod_obj in obj%}
-                                <option class="cod" value="{{prod_obj}}">{{prod_obj}}</option>
+                                <option class="cod" value="{{prod_obj.id}}">{{prod_obj}}</option>
                             {% endfor %}
                         </select>
                     </div>
@@ -125,7 +125,7 @@
                     <div class="col-md-7">
                         <select class="form-control" id="porciones" name="porciones">
                             {% for por in obj_por%}
-                                <option class="porciones" value="{{por}}">{{por}}</option> 
+                                <option class="porciones" value="{{por.id}}">{{por}}</option> 
                             {%endfor%}
                         </select>
                     </div>
@@ -137,7 +137,7 @@
                     <div class="col-md-7 ">
                         <select class="form-control" id="pedido" name="pedido">
                         {% for ped in obj_ped%}
-                        <option class="pedido" value="{{ped}}">{{ped.id}}</option>
+                        <option class="pedido" value="{{ped.id}}">{{ped.id}}</option>
                         {%endfor%}
                     </select>
                     </div>

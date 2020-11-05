@@ -86,12 +86,12 @@ def carrito(request):
 
 def detalle(request):
 
+    if request.method == "POST": 
+        cod_prod=request.POST['cod']
+        cant=request.POST['nroCant']
+        cod_porciones=request.POST['porciones']
+        cod=request.POST['pedido']
 
-    cod_prod=request.POST['cod']
-    cant=request.POST['nroCant']
-    cod_porciones=request.POST['porciones']
-    cod=request.POST['pedido']
-
-    det = Detalle(cod_prod_id=cod_prod,cant=cant,cod_porciones_id=cod_porciones,cod_pedido_id=cod)
-    det.save() 
+        det = Detalle(cod_prod_id=cod_prod,cant=cant,cod_porciones_id=cod_porciones,cod_pedido_id=cod)
+        det.save() 
     return render(request,'Carrito.html', {}) 
